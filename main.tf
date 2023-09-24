@@ -39,7 +39,7 @@ resource "abbey_grant_kit" "abbey_demo_site" {
   }
 
   policies = [
-    { bundle = "github://dougsillars/dougsillars/policies" } # CHANGEME
+    { bundle = "github://dougsillars/abbey-starter-kit-quickstart/policies" } # CHANGEME
   ]
 
   output = {
