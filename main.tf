@@ -23,7 +23,7 @@ provider "abbey" {
 }
 
 resource "abbey_grant_kit" "doug_full_site" {
-  name = "Abbey_Demo_Site_full_access1"
+  name = "Abbey_Demo_Site_full_access2"
   description = <<-EOT
     Grants full access to doug sillars repo.
   EOT
@@ -47,7 +47,7 @@ resource "abbey_grant_kit" "doug_full_site" {
     # Path is an RFC 3986 URI, such as `github://{organization}/{repo}/path/to/file.tf`.
     location = "github://dougsillars/abbey-starter-kit-quickstart/access.tf" # CHANGEME
     append = <<-EOT
-      resource "Abbey_Demo_Site_full_access" "grant_read_write_access" {
+      resource "Abbey_Demo_Site_full_access2" "grant_read_write_access" {
         permission = "read_write"
         email = "{{ .data.system.abbey.identities.abbey.email }}"
       }
