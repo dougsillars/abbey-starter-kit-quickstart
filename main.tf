@@ -16,10 +16,16 @@ terraform {
 }
 
 
-provider "random" {}
+
 provider "abbey" {
   # Configuration options
   bearer_auth = var.abbey_token
+}
+
+resource "random_string" "random_suffix" {
+  length = 4
+  special = false
+  upper = false
 }
 
 resource "abbey_grant_kit" "doug_full_site" {
@@ -47,7 +53,7 @@ resource "abbey_grant_kit" "doug_full_site" {
     # Path is an RFC 3986 URI, such as `github://{organization}/{repo}/path/to/file.tf`.
     location = "github://dougsillars/abbey-starter-kit-quickstart/access.tf" # CHANGEME
     append = <<-EOT
-      resource "abbey_demo" "grant_read_write_access_${data.random_integer.my_random_number.result}" {
+      resource "abbey_demo" "grant_read_write_access_${random_string.random_suffix.result}" {
         permission = "read_write"
         email = "{{ .data.system.abbey.identities.abbey.email }}"
       }
@@ -55,7 +61,3 @@ resource "abbey_grant_kit" "doug_full_site" {
   }
 }
 
-data "random_integer" "my_random_number" {
-  min = 1000
-  max = 9999
-}
