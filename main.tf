@@ -22,10 +22,10 @@ provider "abbey" {
   bearer_auth = var.abbey_token
 }
 
-resource "abbey_grant_kit" "abbey_demo_site" {
-  name = "Abbey_Demo_Site"
+resource "abbey_grant_kit" "doug_full_site" {
+  name = "Abbey_Demo_Site_full_access"
   description = <<-EOT
-    Grants access to Abbey's Demo Page.
+    Grants full access to doug sillars repo.
   EOT
 
   workflow = {
@@ -47,7 +47,7 @@ resource "abbey_grant_kit" "abbey_demo_site" {
     # Path is an RFC 3986 URI, such as `github://{organization}/{repo}/path/to/file.tf`.
     location = "github://dougsillars/abbey-starter-kit-quickstart/access.tf" # CHANGEME
     append = <<-EOT
-      resource "abbey_demo" "grant_read_write_access" {
+      resource "doug_full_site" "grant_read_write_access" {
         permission = "read_write"
         email = "{{ .data.system.abbey.identities.abbey.email }}"
       }
