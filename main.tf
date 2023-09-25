@@ -23,7 +23,7 @@ provider "abbey" {
 }
 
 resource "abbey_grant_kit" "doug_full_site" {
-  name = "Abbey_Demo_Site_full_access2"
+  name = "Abbey_Demo_Site_full_access3"
   description = <<-EOT
     Grants full access to doug sillars repo.
   EOT
