@@ -16,7 +16,7 @@ terraform {
 }
 
 
-
+provider "random" {}
 provider "abbey" {
   # Configuration options
   bearer_auth = var.abbey_token
