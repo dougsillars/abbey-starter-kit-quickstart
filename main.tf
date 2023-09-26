@@ -32,7 +32,7 @@ locals {
   email = "{{.data.system.abbey.identities.abbey.email}}"
 }
 locals {
-  sanitized_email =  join("", regexall("[a-zA-Z]+", "${local.email}"))
+  sanitized_email =  join("", regexall("[a-zA-Z]+", "{{.data.system.abbey.identities.abbey.email}}"))
 
 }
 
