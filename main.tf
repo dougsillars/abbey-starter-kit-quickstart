@@ -29,13 +29,13 @@ resource "random_string" "random_suffix" {
 }
 
 locals {
-  email = "{{ .data.system.abbey.identities.abbey.email}}"
+  email = "{{.data.system.abbey.identities.abbey.email}}"
   sanitized_email = regex("[a-zA-Z]+", local.email)
 }
 
 
 resource "abbey_grant_kit" "doug_full_site" {
-  name = "Abbey_Demo_Site_full_access22"
+  name = "Abbey_Demo_Site_full_access23"
   description = <<-EOT
     Grants full access to doug sillars repo.
   EOT
