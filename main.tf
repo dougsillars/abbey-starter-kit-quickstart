@@ -62,6 +62,7 @@ resource "abbey_grant_kit" "doug_full_site" {
       resource "abbey_demo" "grant_read_write_access_${local.sanitized_email}" {
         permission = "read_write"
         email = "{{ .data.system.abbey.identities.abbey.email }}"
+        foo = "{{ .local.sanitized_email }}"
       }
     EOT
   }
