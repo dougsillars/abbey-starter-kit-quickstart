@@ -28,6 +28,12 @@ resource "random_string" "random_suffix" {
   upper = false
 }
 
+locals {
+  email = "{{.data.system.abbey.identities.abbey.email}}"
+  sanitized_email = regex("[a-zA-Z]+", local.email)
+}
+
+
 resource "abbey_grant_kit" "doug_full_site" {
   name = "Abbey_Demo_Site_full_access10"
   description = <<-EOT
@@ -62,7 +68,3 @@ resource "abbey_grant_kit" "doug_full_site" {
 }
 
 
-locals {
-  email = "{{.data.system.abbey.identities.abbey.email}}"
-  sanitized_email = regex("[a-zA-Z]+", local.email)
-}
