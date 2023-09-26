@@ -33,7 +33,7 @@ locals {
   
 }
 locals{
-  sanitized_email =  regex("[a-zA-Z]+", ${local.email})
+  sanitized_email =  regex("[a-zA-Z]+", "${local.email}")
 
 }
 
