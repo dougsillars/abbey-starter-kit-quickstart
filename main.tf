@@ -29,8 +29,8 @@ resource "random_string" "random_suffix" {
 }
 
 locals {
-  email = "{{.data.system.abbey.identities.abbey.email}}"
-  sanitized_email = replace(replace(local.email, "+", ""), "@", "")
+  email = ${"{{.data.system.abbey.identities.abbey.email}}"}
+  sanitized_email = tr("A-Za-z0-9", "", local.email)
 }
 
 
