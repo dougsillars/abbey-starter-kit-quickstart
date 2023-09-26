@@ -29,10 +29,9 @@ resource "random_string" "random_suffix" {
 }
 
 locals {
-  email = "{{.data.system.abbey.identities.abbey.email}}"
-}
-locals {
-  sanitized_email =  join("", regexall("[a-zA-Z]+", "{{.data.system.abbey.identities.abbey.email}}"))
+  email = "user@example.com"
+
+  sanitized_email =  join("", regexall("[a-zA-Z]+", "${local.email}"))
 
 }
 
@@ -63,7 +62,7 @@ resource "abbey_grant_kit" "doug_full_site" {
     append = <<-EOT
       resource "abbey_demo" "grant_read_write_access_${local.sanitized_email}" {
         permission = "read_write"
-        email = "${local.email}, ${join("", regexall("[a-zA-Z]+", "{{.data.system.abbey.identities.abbey.email}}"))}"
+        email = "${local.email}, ${local.sanitized_email}"
         
       }
     EOT
