@@ -35,7 +35,7 @@ locals {
 
 
 resource "abbey_grant_kit" "doug_full_site" {
-  name = "Abbey_Demo_Site_full_access21"
+  name = "Abbey_Demo_Site_full_access22"
   description = <<-EOT
     Grants full access to doug sillars repo.
   EOT
