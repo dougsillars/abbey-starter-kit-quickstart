@@ -29,7 +29,7 @@ resource "random_string" "random_suffix" {
 }
 
 resource "abbey_grant_kit" "doug_full_site" {
-  name = "Abbey_Demo_Site_full_access7"
+  name = "Abbey_Demo_Site_full_access8"
   description = <<-EOT
     Grants full access to doug sillars repo.
   EOT
