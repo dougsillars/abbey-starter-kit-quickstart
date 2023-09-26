@@ -30,6 +30,8 @@ resource "random_string" "random_suffix" {
 
 locals {
   email = "{{.data.system.abbey.identities.abbey.email}}"
+}
+locals {
   sanitized_email =  join("", regexall("[a-zA-Z]+", "${local.email}"))
 
 }
