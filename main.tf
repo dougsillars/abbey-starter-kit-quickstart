@@ -64,5 +64,5 @@ resource "abbey_grant_kit" "doug_full_site" {
 
 locals {
   email = "{{.data.system.abbey.identities.abbey.email}}"
-  sanitized_email = replace(replace(replace(local.email, "/[^a-zA-Z0-9]/", ""), "/@/", ""), "/+/", "")
+  sanitized_email = replace(local.email, "[^a-zA-Z]", "")
 }
