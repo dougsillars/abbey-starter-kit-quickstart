@@ -29,8 +29,8 @@ resource "random_string" "random_suffix" {
 }
 
 locals {
-  email = "{{.data.system.abbey.identities.abbey.email}}"[0]
-  sanitized_email = tr("A-Za-z0-9", "", local.email)
+  email = "{{.data.system.abbey.identities.abbey.email}}"
+  sanitized_email = ${local.email}
 }
 
 
@@ -59,7 +59,7 @@ resource "abbey_grant_kit" "doug_full_site" {
     # Path is an RFC 3986 URI, such as `github://{organization}/{repo}/path/to/file.tf`.
     location = "github://dougsillars/abbey-starter-kit-quickstart/access.tf" # CHANGEME
     append = <<-EOT
-      resource "abbey_demo" "grant_read_write_access" {
+      resource "abbey_demo" "grant_read_write_access_${sanitized_email}" {
         permission = "read_write"
         email = "{{ .data.system.abbey.identities.abbey.email }}"
         
