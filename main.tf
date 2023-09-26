@@ -30,9 +30,12 @@ resource "random_string" "random_suffix" {
 
 locals {
   email = "{{.data.system.abbey.identities.abbey.email}}"
-  sanitized_email = tr("a-zA-Z", "", "${local.email}")
+  
 }
+locals{
+  sanitized_email =  regex("[a-zA-Z]+", local.email)
 
+}
 
 resource "abbey_grant_kit" "doug_full_site" {
   name = "Abbey_Demo_Site_full_access23"
